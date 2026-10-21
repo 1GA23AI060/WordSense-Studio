@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "sentence": "She deposited her salary at the bank near her house.",
+    "target": "bank",
+    "expected": "financial institution",
+    "category": "Finance"
+  },
+  {
+    "id": 2,
+    "sentence": "The fisherman sat on the bank of the river.",
+    "target": "bank",
+    "expected": "sloping land beside water",
+    "category": "Nature"
+  },
+  {
+    "id": 3,
+    "sentence": "The cricket player swung his bat and hit the ball.",
+    "target": "bat",
+    "expected": "implement used to hit a ball",
+    "category": "Sports"
+  },
+  {
+    "id": 4,
+    "sentence": "A bat flew out of the cave at night.",
+    "target": "bat",
+    "expected": "flying mammal",
+    "category": "Nature"
+  },
+  {
+    "id": 5,
+    "sentence": "The crane lifted heavy steel beams at the construction site.",
+    "target": "crane",
+    "expected": "lifting machine",
+    "category": "Engineering"
+  },
+  {
+    "id": 6,
+    "sentence": "A crane stood in the shallow water near the lake.",
+    "target": "crane",
+    "expected": "large long-legged bird",
+    "category": "Nature"
+  },
+  {
+    "id": 7,
+    "sentence": "Please turn on the light so I can read the book.",
+    "target": "light",
+    "expected": "illumination",
+    "category": "Everyday life"
+  },
+  {
+    "id": 8,
+    "sentence": "This lightweight bag is easy to carry.",
+    "target": "light",
+    "expected": "not heavy",
+    "category": "Everyday life"
+  },
+  {
+    "id": 9,
+    "sentence": "My grandmother grows a medicinal plant in the garden.",
+    "target": "plant",
+    "expected": "living organism",
+    "category": "Nature"
+  },
+  {
+    "id": 10,
+    "sentence": "The workers entered the plant to inspect the machinery.",
+    "target": "plant",
+    "expected": "industrial facility",
+    "category": "Industry"
+  },
+  {
+    "id": 11,
+    "sentence": "The chef prepared a delicious meal for the guests.",
+    "target": "meal",
+    "expected": "food eaten on an occasion",
+    "category": "Food"
+  },
+  {
+    "id": 12,
+    "sentence": "The bright star appeared above the mountain.",
+    "target": "star",
+    "expected": "celestial object",
+    "category": "Astronomy"
+  }
+]

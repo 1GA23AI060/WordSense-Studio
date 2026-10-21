@@ -1,0 +1,96 @@
+WORDSENSE STUDIO — WSD ANALYSIS REPORT
+================================================
+Generated: 2026-10-21T13:26:11.129736+05:30
+Algorithm: Lesk-style contextual overlap
+Lexical resource: NLTK WordNet
+
+Sample sentences: 12
+Evaluated sentences: 11
+Reference-label heuristic matches: 4/11
+
+IMPORTANT: The reference labels are human-readable descriptions, not verified gold-standard WordNet synset annotations. The match count above is only a rough lexical heuristic and must not be presented as benchmark accuracy.
+
+Sample 1: She deposited her salary at the bank near her house.
+Target: bank
+Reference label: financial institution
+Predicted sense: bank
+Definition: the funds held by a gambling house or the dealer in some gambling games
+Overlap score: 3
+------------------------------------------------
+Sample 2: The fisherman sat on the bank of the river.
+Target: bank
+Reference label: sloping land beside water
+Predicted sense: bank
+Definition: sloping land (especially the slope beside a body of water)
+Overlap score: 5
+------------------------------------------------
+Sample 3: The cricket player swung his bat and hit the ball.
+Target: bat
+Reference label: implement used to hit a ball
+Predicted sense: cricket bat
+Definition: the club used in playing cricket
+Overlap score: 3
+------------------------------------------------
+Sample 4: A bat flew out of the cave at night.
+Target: bat
+Reference label: flying mammal
+Predicted sense: cream
+Definition: beat thoroughly and conclusively in a competition or fight
+Overlap score: 2
+------------------------------------------------
+Sample 5: The crane lifted heavy steel beams at the construction site.
+Target: crane
+Reference label: lifting machine
+Predicted sense: crane
+Definition: stretch (the neck) so as to see better
+Overlap score: 1
+------------------------------------------------
+Sample 6: A crane stood in the shallow water near the lake.
+Target: crane
+Reference label: large long-legged bird
+Predicted sense: grus
+Definition: a small constellation in the southern hemisphere near Phoenix
+Overlap score: 4
+------------------------------------------------
+Sample 7: Please turn on the light so I can read the book.
+Target: light
+Reference label: illumination
+Predicted sense: light
+Definition: mental understanding as an enlightening experience
+Overlap score: 3
+------------------------------------------------
+Sample 8: This lightweight bag is easy to carry.
+Target: light
+Reference label: N/A
+Predicted sense: N/A
+Definition: N/A
+Overlap score: N/A
+------------------------------------------------
+Sample 9: My grandmother grows a medicinal plant in the garden.
+Target: plant
+Reference label: living organism
+Predicted sense: plant
+Definition: put or set (seeds, seedlings, or plants) into the ground
+Overlap score: 3
+------------------------------------------------
+Sample 10: The workers entered the plant to inspect the machinery.
+Target: plant
+Reference label: industrial facility
+Predicted sense: plant
+Definition: an actor situated in the audience whose acting is rehearsed but seems spontaneous to the audience
+Overlap score: 2
+------------------------------------------------
+Sample 11: The chef prepared a delicious meal for the guests.
+Target: meal
+Reference label: food eaten on an occasion
+Predicted sense: meal
+Definition: any of the occasions for eating food that occur by custom or habit at more or less fixed times
+Overlap score: 2
+------------------------------------------------
+Sample 12: The bright star appeared above the mountain.
+Target: star
+Reference label: celestial object
+Predicted sense: star
+Definition: (astronomy) a celestial body of hot gases that radiates energy derived from thermonuclear reactions in the interior
+Overlap score: 1
+------------------------------------------------

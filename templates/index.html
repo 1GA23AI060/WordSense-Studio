@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>WordSense Studio | Word Sense Disambiguation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">W<span>.</span></span>
+      <span>WordSense <b>Studio</b><small>LEXICAL INTELLIGENCE LAB</small></span>
+    </a>
+    <div class="top-right">
+      <span class="status-dot"></span>
+      <span id="systemStatus">Connecting to WordNet</span>
+      <span class="version">NLP / 01</span>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span></span> NATURAL LANGUAGE PROCESSING · PROJECT 05</div>
+      <h1>Words have layers.<br><span>Find the right meaning.</span></h1>
+      <p class="hero-copy">An intelligent word sense disambiguation workspace that reads context, explores lexical meaning, and helps uncover what a word actually means in a sentence.</p>
+      <div class="hero-tags">
+        <span>✳ WordNet Lexicon</span><span>⌘ Lesk Algorithm</span><span>◈ Context Analysis</span>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <article class="metric-card"><div class="metric-label">LEXICAL DATABASE</div><div class="metric-value">WordNet <span class="metric-icon">⌘</span></div><div class="metric-note">Synsets, definitions & relations</div></article>
+      <article class="metric-card"><div class="metric-label">DISAMBIGUATION</div><div class="metric-value">Lesk-style <span class="metric-icon">✳</span></div><div class="metric-note">Contextual word overlap</div></article>
+      <article class="metric-card"><div class="metric-label">SAMPLE DATASET</div><div class="metric-value"><span id="sampleCount">12</span> <small>sentences</small><span class="metric-icon">▤</span></div><div class="metric-note">Ambiguous words in context</div></article>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div><div class="eyebrow">01 / ANALYSIS WORKSPACE</div><h2>Decode a sentence</h2></div>
+        <span class="live-pill"><i></i> LIVE ANALYSIS</span>
+      </div>
+      <div class="analysis-grid">
+        <div class="panel input-panel">
+          <label for="sentence">YOUR SENTENCE <span>REQUIRED</span></label>
+          <textarea id="sentence" maxlength="2000" placeholder="Enter a sentence containing an ambiguous word...">She deposited her salary at the bank near her house.</textarea>
+          <div class="input-footer"><span id="charCount">55 / 2000</span><button id="clearBtn" class="text-button">Clear ↗</button></div>
+          <label for="target" class="target-label">TARGET WORD <span>THE WORD TO DISAMBIGUATE</span></label>
+          <div class="target-row"><div class="target-input-wrap"><span class="search-symbol">⌕</span><input id="target" type="text" value="bank" placeholder="e.g. bank"></div><button id="analyzeBtn" class="primary-button"><span>Analyze meaning</span><b>↗</b></button></div>
+          <div class="sample-header"><span>TRY A SAMPLE</span><span>CLICK TO EXPLORE</span></div>
+          <div id="sampleChips" class="sample-chips">
+            <button data-sentence="She deposited her salary at the bank near her house." data-target="bank">bank <span>finance</span></button>
+            <button data-sentence="The fisherman sat on the bank of the river." data-target="bank">bank <span>nature</span></button>
+            <button data-sentence="A bat flew out of the cave at night." data-target="bat">bat <span>animal</span></button>
+            <button data-sentence="The crane lifted heavy steel beams at the construction site." data-target="crane">crane <span>machine</span></button>
+          </div>
+        </div>
+
+        <div class="panel result-panel">
+          <div class="result-top"><div><div class="eyebrow">02 / INTERPRETATION</div><h3>Sense prediction</h3></div><span class="result-orb">✳</span></div>
+          <div id="emptyState" class="empty-state"><div class="empty-art"><span>W</span><i>✳</i><i>◌</i></div><h4>Meaning lives in context.</h4><p>Run an analysis to reveal the predicted sense, definition, and competing meanings.</p><div class="empty-line"></div><div class="empty-line short"></div></div>
+          <div id="resultContent" class="hidden">
+            <div class="prediction-label">MOST LIKELY SENSE</div>
+            <h2 id="predictedName">—</h2>
+            <div class="sense-meta"><span id="posBadge" class="pos-badge">NOUN</span><span id="confidenceBadge" class="confidence-badge">Moderate</span><span id="synsetId" class="synset-id"></span></div>
+            <p id="definition" class="definition"></p>
+            <div id="examplesWrap" class="examples-wrap hidden"><div class="mini-label">WORDNET EXAMPLES</div><p id="examples"></p></div>
+            <div class="score-block"><div><span>Context overlap score</span><strong id="scoreValue">0</strong></div><div class="score-track"><span id="scoreBar"></span></div><small>Heuristic score, not a probability</small></div>
+            <div class="explanation"><span>✳</span><p id="explanation"></p></div>
+          </div>
+          <div id="errorBox" class="error-box hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel senses-section">
+      <div class="section-heading compact">
+        <div><div class="eyebrow">03 / LEXICAL EXPLORER</div><h2>Competing senses</h2></div>
+        <span id="candidateCount" class="count-pill">AWAITING ANALYSIS</span>
+      </div>
+      <p class="section-description">WordNet organizes meanings into synonym sets, known as <em>synsets</em>. Compare the candidate definitions and their contextual scores below.</p>
+      <div id="candidates" class="candidate-list"><div class="candidate-placeholder">Your candidate senses will appear here after analysis.</div></div>
+    </section>
+
+    <section class="bottom-grid">
+      <div class="panel dataset-panel">
+        <div class="section-heading compact"><div><div class="eyebrow">04 / TEST BENCH</div><h2>Sample sentences</h2></div><span class="count-pill">JSON DATASET</span></div>
+        <p class="section-description">Explore the bundled examples or use them as a starting point for your own evaluation.</p>
+        <div id="datasetList" class="dataset-list"><div class="candidate-placeholder">Loading sample data…</div></div>
+      </div>
+      <div class="panel report-panel">
+        <div class="report-icon">▤</div><div class="eyebrow">05 / EXPORT & DOCUMENTATION</div><h2>Turn results into a report.</h2><p>Generate an analysis report from the full sample dataset, including predicted senses, definitions, and heuristic scores.</p>
+        <button id="reportBtn" class="primary-button report-button"><span>Generate analysis report</span><b>↗</b></button>
+        <a id="downloadLink" class="download-link hidden" href="/api/report/download">↓ Download wsd_analysis_report.txt</a>
+        <div id="reportMessage" class="report-message" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <footer><a class="footer-brand" href="/">W<span>.</span> WordSense Studio</a><span>Built for learning · NLP / Word Sense Disambiguation</span><span>FLASK × NLTK WORDNET</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
